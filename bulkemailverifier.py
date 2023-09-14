@@ -5,14 +5,14 @@ import requests
 import datetime  
 import pycurl  
 
-class BouncelessOne():  
+class bulkemailverifierOne():  
     """
     Class for individual email verification.
     """
     def __init__(self, key, email):  
         self.key = key  
         self.email = email  
-        self.verif = "https://apps.bounceless.io/api/singlemaildetails?secret="  
+        self.verif = "https://client.bulkemailverifier.com/api/singlemaildetails?secret="  
         self.url = f"{self.verif}{self.key}&email={self.email}"  
 
     def control(self):  
@@ -29,7 +29,7 @@ class BouncelessOne():
         else:
             return response.json()  # returns a JSON response  
 
-class BouncelessBulk():  
+class bulkemailverifierBulk():  
     """
     Class for bulk email verification.
     """
@@ -38,7 +38,7 @@ class BouncelessBulk():
         self.key = key  
         self.name = f'File{datenow.strftime("%Y-%m-%d %H:%M")}'
         self.user_file = user_file  
-        self.url = f'https://apps.bounceless.io/api/verifyApiFile?secret={key}&filename={self.name}'
+        self.url = f'https://client.bulkemailverifier.com/api/verifyApiFile?secret={key}&filename={self.name}'
 
     def upload(self):  
         """
@@ -63,7 +63,7 @@ class BouncelessBulk():
         """
         with open('id_file','r') as f:  
             ids = f.read()  
-            url = f'https://apps.bounceless.io/api/getApiFileInfo?secret={self.key}&id={ids}'
+            url = f'https://client.bulkemailverifier.com/api/getApiFileInfo?secret={self.key}&id={ids}'
             try:
                 response = requests.get(url)
                 response.raise_for_status()

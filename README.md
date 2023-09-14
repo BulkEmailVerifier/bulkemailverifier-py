@@ -1,6 +1,6 @@
-# Bounceless Python API
+# bulkemailverifier Python API
 
-This Python client allows you to interact with the Bounceless.io API for email verification. The client supports the following features:
+This Python client allows you to interact with the client.bulkemailverifier.com API for email verification. The client supports the following features:
 
 1. Single email verification
 2. Bulk email verification from a CSV file
@@ -11,7 +11,7 @@ This Python client allows you to interact with the Bounceless.io API for email v
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/bounceless/Bounceless-Python.git
+git clone https://github.com/BulkEmailVerifier/bulkemailverifier-py.git
 ```
 
 ## Usage
@@ -19,44 +19,44 @@ git clone https://github.com/bounceless/Bounceless-Python.git
 Import the necessary classes from the `emailverify` module:
 
 ```python
-from emailverify import BouncelessOne, BouncelessBulk
+from emailverify import bulkemailverifierOne, bulkemailverifierBulk
 ```
 
 ### Single Email Verification
 
-Use the `BouncelessOne` class to verify a single email. You will need to provide your API key and the email you wish to verify:
+Use the `bulkemailverifierOne` class to verify a single email. You will need to provide your API key and the email you wish to verify:
 
 ```python
 def verify_single_email():
     # Replace 'YOUR_KEY' with your actual API key
     # Replace 'test@email.com' with the actual email you want to verify
-    bounceless_one = BouncelessOne('YOUR_KEY', 'test@email.com')
-    response = bounceless_one.control()
+    bulkemailverifier_one = bulkemailverifierOne('YOUR_KEY', 'test@email.com')
+    response = bulkemailverifier_one.control()
     print(response)
 ```
 
 ### Bulk Email Verification
 
-Use the `BouncelessBulk` class to verify a bulk of emails from a CSV file. Provide your API key and the path to the CSV file:
+Use the `bulkemailverifierBulk` class to verify a bulk of emails from a CSV file. Provide your API key and the path to the CSV file:
 
 ```python
 def verify_bulk_emails():
     # Replace 'YOUR_KEY' with your actual API key
     # Replace 'path/to/file.csv' with the actual path to your CSV file
-    bounceless_bulk = BouncelessBulk('YOUR_KEY', 'path/to/file.csv')
-    bounceless_bulk.upload()
+    bulkemailverifier_bulk = bulkemailverifierBulk('YOUR_KEY', 'path/to/file.csv')
+    bulkemailverifier_bulk.upload()
 ```
 
 ### Fetching Verification Results
 
-After a bulk upload, fetch the verification results using the `get_info()` method from the `BouncelessBulk` class. This method can also be used independently by providing the ID of a previously uploaded file:
+After a bulk upload, fetch the verification results using the `get_info()` method from the `bulkemailverifierBulk` class. This method can also be used independently by providing the ID of a previously uploaded file:
 
 ```python
 def get_bulk_info():
     # Replace 'YOUR_KEY' with your actual API key
     # Replace 'FILE_ID' with the actual ID of your uploaded file
-    bounceless_bulk = BouncelessBulk('YOUR_KEY', 'FILE_ID')
-    response = bounceless_bulk.get_info()
+    bulkemailverifier_bulk = bulkemailverifierBulk('YOUR_KEY', 'FILE_ID')
+    response = bulkemailverifier_bulk.get_info()
     print(response)
 ```
 
